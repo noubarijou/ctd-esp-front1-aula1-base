@@ -40,7 +40,7 @@ const Formulario = () => {
                 <span>Treinador</span>
               </p>
               <Input name="nome" label="Nome" />
-              <Input name="apelido" label="Apelido" />
+              <Input name="sobrenome" label="Sobrenome" />
               <Input name="email" label="Email" type="email" />
             </div>
             <div>
