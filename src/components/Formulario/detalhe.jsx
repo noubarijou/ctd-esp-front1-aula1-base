@@ -12,7 +12,7 @@ const Detalhe = () => {
         <h4>Dados do Treinador</h4>
         <div className="lista">
           <p>Nome:</p>
-          <p>Apelido:</p>
+          <p>Sobrenome:</p>
           <p>Email:</p>
         </div>
       </section>
