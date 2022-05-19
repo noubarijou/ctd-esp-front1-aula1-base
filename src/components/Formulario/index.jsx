@@ -1,22 +1,17 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import pokebola from "../../assets/pokebola.png";
-import treinador from "../../assets/treinador.png";
+import pokebolaImg from "../../assets/pokebola.png";
+import treinadorImg from "../../assets/treinador.png";
 import pikachu from "../../assets/pikachu.png";
 import Input from "../Input";
 import Detalhe from "./detalhe";
-
-// Neste componente temos nosso formulário e dentro dele
-// temos os componentes que precisam consumir nosso estado.
-// Lembre-se qual é o passo que devemos dar para que nosso
-// componentes podem consumir um estado global.
+import ContextoFormularioProvider from "../../context/contextoFormulario";
 
 const Formulario = () => {
   return (
     <>
       <header className="form-header">
         <div>
-          <img src={pokebola} alt="pokebola" />
+          <img src={pokebolaImg} alt="pokebola" />
           <h2>Centro Pokémon de Ash</h2>
         </div>
         <Link className="retorna" to="/">
@@ -29,14 +24,11 @@ const Formulario = () => {
           Por favor, preencha o formulário para que possamos mostrar seu Pokémon
         </p>
         <div className="corpo-formulario">
-          {/*
-           Se ao menos tivéssemos uma maneira de "encapsular" nossos componentes
-           para que possam acessar o estado global.
-          */}
+         <ContextoFormularioProvider>
           <div className="inputs">
             <div>
               <p className="nome-secao">
-                <img src={treinador} alt="treinador" />
+                <img src={treinadorImg} alt="treinador" />
                 <span>Treinador</span>
               </p>
               <Input name="nome" label="Nome" />
@@ -48,10 +40,15 @@ const Formulario = () => {
                 <img src={pikachu} alt="pikachu" />
                 <span>Pokémon</span>
               </p>
-              <Input name="nomePokemon" label="Nome" />
+              <Input name="nomePokemon" label="Nome" isPokemon={true} />
+              <Input name="tipoPokemon" placeholder="Tipo" label="Tipo" isPokemon={true} />
+              <Input name="elementoPokemon" placeholder="Elemento" label="Elemento" isPokemon={true} />
+              <Input name="alturaPokemon" placeholder="Altura" label="Altura" isPokemon={true} />
+              <Input name="idadePokemon" placeholder="Idade" label="Idade" isPokemon={true} />
             </div>
           </div>
           <Detalhe />
+         </ContextoFormularioProvider>
         </div>
       </div>
     </>
