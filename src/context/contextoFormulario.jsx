@@ -1,6 +1,10 @@
 // Aqui devemos criar nosso contexto e nosso provider.
 import { createContext, useReducer } from "react";
 
+/**
+ * Aqui criamos o contexto e o estado inicial
+ */
+
 export const contextoFormulario = createContext();
 const initialState = {
     treinador: {
@@ -16,6 +20,13 @@ const initialState = {
       idadePokemon: "",
     },
   };
+
+/**
+ * A função reducer é responsável por atualizar o estado do contexto.
+ * @param {*} state 
+ * @param {*} action 
+ * @returns {Object}
+ */
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,10 +51,18 @@ const reducer = (state, action) => {
     }
 };
 
+/**
+  * Declaramos o provider do contexto do formulário
+ */
+
 const ContextoFormularioProvider = ({ children }) => {
 
     const [form, dispatch] = useReducer(reducer, initialState);
-
+  /**
+   * A função recebe o action type e a informação do input e atualiza o estado do contexto pelo dispatch
+   * @param {*} type 
+   * @param {*} inputInfo 
+   */
     const displayOnBlur = (type, inputInfo) => {
         const {campo, valor} = inputInfo;
 
