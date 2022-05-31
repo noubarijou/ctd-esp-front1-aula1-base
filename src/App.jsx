@@ -3,9 +3,13 @@ import Inicio from "./components/Inicio";
 import Formulario from "./components/Formulario";
 import "./App.css";
 import FormularioContextoProvider from './context/contextoFormulario';
+import {QueryClientProvider, QueryClient} from 'react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
+      <QueryClientProvider client={queryClient}>
     <div className="App">
       <FormularioContextoProvider>
       <Routes>
@@ -14,6 +18,7 @@ function App() {
       </Routes>
       </FormularioContextoProvider>
     </div>
+      </QueryClientProvider>
   );
 }
 

@@ -3,6 +3,7 @@ import pokebolaImg from "../../assets/pokebola.png";
 import treinadorImg from "../../assets/treinador.png";
 import pikachu from "../../assets/pikachu.png";
 import Input from "../Input";
+import Select from "../Select";
 import Detalhe from "./detalhe";
 import ContextoFormularioProvider from "../../context/contextoFormulario";
 
@@ -41,7 +42,8 @@ const Formulario = () => {
                 <span>Pokémon</span>
               </p>
               <Input name="nomePokemon" label="Nome" isPokemon={true} />
-              <Input name="tipoPokemon" placeholder="Tipo" label="Tipo" isPokemon={true} />
+              <Select name="tipoPokemon" label="Tipo" isPokemon={true} />
+              {/* <Input name="tipoPokemon" type="checkbox" placeholder="Tipo" label="Tipo" isPokemon={true} /> */}
               <Input name="elementoPokemon" placeholder="Elemento" label="Elemento" isPokemon={true} />
               <Input name="alturaPokemon" placeholder="Altura" label="Altura" isPokemon={true} />
               <Input name="idadePokemon" placeholder="Idade" label="Idade" isPokemon={true} />
